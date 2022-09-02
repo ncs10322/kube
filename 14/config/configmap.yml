@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-    name: projectid
-data:
-    project.id: "ncs10300-1234"
