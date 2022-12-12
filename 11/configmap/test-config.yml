@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: test-config
-data:
-  DB_USER: ncs10322
-  DB_PASS: abcd1234
-  DB_URL: localhost
-  DEBUG_INFO: debug
