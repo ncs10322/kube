@@ -1,0 +1,7 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/homepage:blue', './blue']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/homepage:green', './green']
+images: ['gcr.io/$PROJECT_ID/homepage:blue', 'gcr.io/$PROJECT_ID/homepage:green']
+
