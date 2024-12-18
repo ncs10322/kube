@@ -65,7 +65,6 @@ cat << EOF >> /etc/hosts
 192.168.2.61  node1.example.com  node1
 192.168.2.62  node2.example.com  node2
 192.168.2.63  node3.example.com  node3
-192.168.2.70  minikube.example.com  minikube
 192.168.2.80  loadbalancer.examlple.com  loadbalancer
 EOF
 
