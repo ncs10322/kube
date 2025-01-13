@@ -74,6 +74,8 @@ printf "⑨  nmap을 설치합니다.\n"
 yum -y -q install nmap
 
 printf "\n"
+echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+systemctl restart sshd
 sleep 3
 printf "======================================\n"
 printf "CentOS 기본 환경 구성이 완료되었습니다.\n"
