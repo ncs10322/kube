@@ -44,6 +44,7 @@ EOF
 
 printf "\n"
 sleep 3
+cp .vimrc /etc/skel/
 printf "⑥  '.bashrc' 파일에 alias와 PS1 환경 변수를 설정합니다.\n"
 
 cat << EOF >> .bashrc 
