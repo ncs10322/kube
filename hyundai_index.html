@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>현대자동차</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --nav-bg-start: #003366;
+      --nav-bg-end: #000000;
+      --sidebar-bg: #f4f6f8;
+      --main-bg: #ffffff;
+      --accent: #007acc;
+      --text-dark: #111;
+      --text-light: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background-color: #e5e7eb;
+      color: var(--text-dark);
+      font-size: 18px;
+    }
+
+    header {
+      height: 180px;
+      color: white;
+      padding: 0 30px;
+      background: linear-gradient(to right, var(--nav-bg-start), var(--nav-bg-end));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo {
+      font-size: 2.4em;
+      font-weight: bold;
+      z-index: 2;
+    }
+
+    .slider {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      position: absolute;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slider img.active {
+      opacity: 0.25;
+    }
+
+    .notice-marquee {
+      background: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      padding: 5px 10px;
+      margin-top: 10px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .notice-marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 15s linear infinite;
+    }
+
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    nav {
+      width: 220px;
+      background-color: #003366;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      padding: 25px;
+      font-size: 18px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-bottom: 12px;
+      font-weight: 600;
+      display: block;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .dropdown {
+      display: none;
+      padding-left: 15px;
+      margin-top: 5px;
+    }
+
+    .dropdown a {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .sidebar {
+      width: 180px;
+      background-color: var(--sidebar-bg);
+      padding: 25px;
+      font-size: 16px;
+    }
+
+    .sidebar h4 {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #333;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #006699;
+    }
+
+    .sidebar a:hover {
+      color: #004466;
+      text-decoration: underline;
+    }
+
+    .main {
+      flex: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 50px;
+      background-color: var(--main-bg);
+      display: grid;
+      gap: 30px;
+      grid-template-columns: repeat(2, 1fr);
+      animation: fadeIn 1s ease-in;
+    }
+
+    @media (max-width: 768px) {
+      .main {
+        grid-template-columns: 1fr;
+        padding: 30px;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .menu-card {
+      background-color: #fdfdfd;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .menu-card h3 {
+      font-size: 22px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .menu-card p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    footer {
+      background-color: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 25px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">HYUNDAI</div>
+    <div class="notice-marquee">
+      <span>2025 전기차 라인업 출시! &nbsp;&nbsp;&nbsp; 모빌리티 비전 발표! &nbsp;&nbsp;&nbsp; 여름 맞이 특별 프로모션 진행 중!</span>
+    </div>
+    <div class="slider">
+      <img src="https://www.hyundai.com/contents/mainbanner/ioniq5n_2024_pc.jpg" class="active" />
+      <img src="https://www.hyundai.com/contents/mainbanner/avante-n_pc.jpg" />
+      <img src="https://www.hyundai.com/contents/mainbanner/palisade_pc.jpg" />
+    </div>
+  </header>
+
+  <div class="container">
+    <nav>
+      <a href="#">홈</a>
+      <a onclick="toggleDropdown('company')">회사소개 ▾</a>
+      <div id="dropdown-company" class="dropdown">
+        <a href="#">CEO 인사말</a>
+        <a href="#">기업 철학</a>
+        <a href="#">연혁</a>
+      </div>
+      <a onclick="toggleDropdown('models')">모델소개 ▾</a>
+      <div id="dropdown-models" class="dropdown">
+        <a href="#">전기차</a>
+        <a href="#">SUV</a>
+        <a href="#">세단</a>
+      </div>
+      <a href="#news">뉴스/이벤트</a>
+      <a href="#support">고객지원</a>
+    </nav>
+
+    <div class="sidebar">
+      <h4><i class="fas fa-bullhorn"></i> 공지사항</h4>
+      <ul>
+        <li><i class="fas fa-bolt"></i> 2025 전기차 출시</li>
+        <li><i class="fas fa-rocket"></i> 미래 모빌리티 공개</li>
+      </ul>
+      <h4><i class="fas fa-link"></i> 빠른 링크</h4>
+      <ul>
+        <li><i class="fas fa-car"></i><a href="#"> 시승 신청</a></li>
+        <li><i class="fas fa-map-marker-alt"></i><a href="#"> 전시장 찾기</a></li>
+      </ul>
+    </div>
+
+    <main class="main">
+      <div class="menu-card">
+        <h3>전기차</h3>
+        <p>IONIQ 시리즈 등 전기차 모델을 소개합니다.</p>
+      </div>
+      <div class="menu-card">
+        <h3>하이브리드</h3>
+        <p>연료 효율이 높은 친환경 하이브리드 차량 안내.</p>
+      </div>
+      <div class="menu-card">
+        <h3>고객센터</h3>
+        <p>차량 상담, A/S, 구매 문의는 이곳에서 확인하세요.</p>
+      </div>
+      <div class="menu-card">
+        <h3>이벤트</h3>
+        <p>진행 중인 프로모션 및 특별 이벤트를 알아보세요.</p>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2025 HYUNDAI MOTOR COMPANY. All rights reserved.
+  </footer>
+
+  <script>
+    const slides = document.querySelectorAll('.slider img');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 5000);
+
+    function toggleDropdown(id) {
+      const el = document.getElementById('dropdown-' + id);
+      el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+
+</body>
+</html>
